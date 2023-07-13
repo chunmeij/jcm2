@@ -1,0 +1,45 @@
+pragma solidity ^0.4.16;
+
+contract testArray
+{
+    uint[] arr=[1,2,3,4,5];//定义数组arr
+    //修改数组的第二个和第三个元素
+    function changeArray() public
+    {
+        arr[1]=100;
+        arr[2]=200;
+    }
+    //获取数组的元素
+    function getArray() public view returns(uint[] arr)
+    {
+        return arr;
+    }
+    //求数组的数字和
+    function getArrayCount() public view returns(uint)
+    {
+        uint grade=0;
+        for(uint i=0;i<5;i++)
+        {
+            grade+=arr[i];
+        }
+        return grade;
+    }
+    //求数组的长度
+    function getlength() public view returns(uint)
+    {
+        return arr.length;
+    }
+    //改变数组的长度
+    //注：如果要改变数组的长度，数组在初始化的时候不应该是定义好的空间，例如： uint[5] arr=[1,2,3,4,5];这样子会报错，
+    //应该 uint[] arr=[1,2,3,4,5];这样才是对的
+    function changeLength() public
+    {
+       arr.length=1;
+    }
+    //添加内容，跟改变数组长度一样，数组初始化的时候不能声明具体大小
+    function pushContenth() public
+    {
+       arr.push(10);
+    }
+    
+}
